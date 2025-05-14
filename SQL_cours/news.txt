@@ -1,0 +1,10 @@
+Base de données : news_board
+
+Tables :
+1. users (id, name)
+2. news (id, user_id, title, url)
+3. comments (id, user_id, news_id, parent_comment_id, content)
+
+Relations :
+- Un utilisateur peut publier plusieurs news (1:N).
+- Les commentaires peuvent être liés à une news ou à un autre commentaire (1:N récursif).

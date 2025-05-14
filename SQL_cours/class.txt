@@ -1,0 +1,8 @@
+Base de données : education_platform
+
+Tables :
+1. students (id, name, course_id)
+2. courses (id, name)
+
+Relations :
+- Un cours peut avoir plusieurs étudiants (1:N).

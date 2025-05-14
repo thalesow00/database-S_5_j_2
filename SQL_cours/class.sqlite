@@ -1,0 +1,11 @@
+CREATE TABLE courses (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL
+);
+
+CREATE TABLE students (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    course_id INTEGER,
+    FOREIGN KEY(course_id) REFERENCES courses(id)
+);

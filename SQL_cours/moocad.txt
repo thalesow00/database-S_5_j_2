@@ -1,0 +1,8 @@
+Base de données : moocacademy_db
+
+Tables :
+1. courses (id, title, description)
+2. lessons (id, course_id, title, body)
+
+Relations :
+- Un cours peut avoir plusieurs leçons (1:N).

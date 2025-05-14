@@ -1,0 +1,39 @@
+-- Récupérer tous les albums
+SELECT * FROM albums;
+
+-- Récupérer tous les albums contenant "Great"
+SELECT * FROM albums WHERE title LIKE '%Great%';
+
+-- Nombre total d'albums
+SELECT COUNT(*) FROM albums;
+
+-- Supprimer tous les albums contenant "music"
+DELETE FROM albums WHERE title LIKE '%music%';
+
+-- Récupérer tous les albums écrits par AC/DC
+SELECT * FROM albums WHERE artist_id = (SELECT id FROM artists WHERE name = 'AC/DC');
+
+-- Récupérer tous les titres des albums de AC/DC
+SELECT tracks.title FROM tracks 
+JOIN albums ON tracks.album_id = albums.id 
+JOIN artists ON albums.artist_id = artists.id 
+WHERE artists.name = 'AC/DC';
+
+-- Liste des titres de l'album "Let There Be Rock"
+SELECT tracks.title FROM tracks 
+JOIN albums ON tracks.album_id = albums.id 
+WHERE albums.title = 'Let There Be Rock';
+
+-- Prix et durée totale de "Let There Be Rock"
+SELECT albums.price, SUM(tracks.duration) AS total_duration 
+FROM albums JOIN tracks ON albums.id = tracks.album_id 
+WHERE albums.title = 'Let There Be Rock';
+
+-- Coût de l'intégralité de la discographie de "Deep Purple"
+SELECT SUM(albums.price) FROM albums 
+JOIN artists ON albums.artist_id = artists.id 
+WHERE artists.name = 'Deep Purple';
+
+-- Ajouter un nouvel album en base
+INSERT INTO albums (title, artist_id, price) VALUES ('New Album', 1, 9.99);
+INSERT INTO tracks (title, album_id, duration) VALUES ('New Song', LAST_INSERT_ROWID(), 240);

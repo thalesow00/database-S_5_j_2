@@ -1,0 +1,10 @@
+Base de données : pinterest_clone
+
+Tables :
+1. users (id, name)
+2. pins (id, user_id, image_url)
+3. comments (id, user_id, pin_id, content)
+
+Relations :
+- Un utilisateur peut créer plusieurs pins (1:N).
+- Un utilisateur peut commenter plusieurs pins (1:N).
